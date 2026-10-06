@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Star Blaster | O Derradeiro Shoot 'em up 2D</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- Integração do SDK do PayPal (Modo Teste) -->
+    <script src="https://www.paypal.com/sdk/js?client-id=test&currency=EUR"></script>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">STAR <span>BLASTER</span></div>
+        <ul class="nav-links">
+            <li><a href="demo.html" style="color: var(--vibrant-yellow); text-shadow: 0 0 8px var(--vibrant-yellow);" data-i18n="nav_demo">Jogar Demo</a></li>
+            <li><a href="#features" data-i18n="nav_features">Características</a></li>
+            <li><a href="#galeria" data-i18n="nav_gallery">Galeria</a></li>
+            <li><a href="#skins" data-i18n="nav_skins">Mercado Negro (Skins)</a></li>
+            <li><a href="#leaderboard" data-i18n="nav_leaderboard">Leaderboard</a></li>
+            <li>
+                <select id="langSwitcher" class="lang-switcher">
+                    <option value="pt">🇵🇹 PT</option>
+                    <option value="en">🇬🇧 EN</option>
+                    <option value="es">🇪🇸 ES</option>
+                    <option value="fr">🇫🇷 FR</option>
+                    <option value="de">🇩🇪 DE</option>
+                    <option value="zh">🇨🇳 ZH</option>
+                    <option value="ja">🇯🇵 JA</option>
+                </select>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Fundo de Estrelas em Canvas -->
+    <canvas id="starfield"></canvas>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="hero-content">
+            <h1 class="glitch" data-text="STAR BLASTER">STAR BLASTER</h1>
+            <p data-i18n="hero_subtitle">Defende a galáxia, destrói bosses e domina o leaderboard global!</p>
+            <a href="demo.html" class="cta-button" data-i18n="hero_cta">JOGAR DEMO AGORA</a>
+        </div>
+    </header>
+
+    <!-- Features Section -->
+    <section id="features" class="section">
+        <h2 class="section-title" data-i18n="feat_title">O Que Te Espera</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="icon">🎮</div>
+                <h3 data-i18n="feat_1_title">Modos de Jogo</h3>
+                <p data-i18n="feat_1_desc">Aventura a solo intensa ou Multijogador local no mesmo ecrã com amigos.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">👾</div>
+                <h3 data-i18n="feat_2_title">Bosses Épicos</h3>
+                <p data-i18n="feat_2_desc">Enfrenta naves colossais que preenchem o ecrã, com padrões de ataque implacáveis.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🕹️</div>
+                <h3 data-i18n="feat_3_title">Suporte a Comandos</h3>
+                <p data-i18n="feat_3_desc">Joga da forma que preferires. Suporte completo plug-and-play para gamepads.</p>
+            </div>
+            <div class="feature-card">
+                <div class="icon">🏆</div>
+                <h3 data-i18n="feat_4_title">Leaderboard Global</h3>
+                <p data-i18n="feat_4_desc">Compara as tuas pontuações online e prova que és o melhor piloto da galáxia.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galeria Section -->
+    <section id="galeria" class="section">
+        <h2 class="section-title" data-i18n="gal_title">Vislumbre da Batalha</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item placeholder-1">
+                <div class="overlay"><span data-i18n="gal_img1">Gameplay Ação</span></div>
+            </div>
+            <div class="gallery-item placeholder-2">
+                <div class="overlay"><span data-i18n="gal_img2">Boss Fight</span></div>
+            </div>
+            <div class="gallery-item placeholder-3">
+                <div class="overlay"><span data-i18n="gal_img3">Modo Co-op</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skins Section -->
+    <section id="skins" class="section">
+        <h2 class="section-title" data-i18n="skins_title">Mercado Negro (Skins)</h2>
+        <div class="lootbox-container">
+            <p class="lootbox-desc" data-i18n="skins_desc">Compra caixas com dinheiro real para desbloqueares skins exclusivas. Escolhe o teu nível de recompensa!</p>
+            
+            <div class="box-selector">
+                <div class="box-option active" data-box="standard" data-price="1.99" data-icon="📦">
+                    <div class="box-icon">📦</div>
+                    <h4 data-i18n="box_standard">Caixa Padrão</h4>
+                    <p>€ 1.99</p>
+                </div>
+                <div class="box-option" data-box="epic" data-price="4.99" data-icon="🎁">
+                    <div class="box-icon">🎁</div>
+                    <h4 data-i18n="box_epic">Caixa Épica</h4>
+                    <p>€ 4.99</p>
+                </div>
+                <div class="box-option" data-box="legendary" data-price="9.99" data-icon="💎">
+                    <div class="box-icon">💎</div>
+                    <h4 data-i18n="box_legendary">Caixa Lendária</h4>
+                    <p>€ 9.99</p>
+                </div>
+            </div>
+
+            <div class="lootbox-area">
+                <div class="lootbox" id="lootbox">
+                    <div class="box-img" id="activeBoxImg" style="font-size: 8rem; line-height: 1;">📦</div>
+                </div>
+                <div class="loot-result" id="lootResult">
+                    <div class="skin-icon" id="skinIcon" style="font-size: 6rem; line-height: 1;">🚀</div>
+                    <h3 id="skinName">???</h3>
+                    <p id="skinRarity" class="rarity">---</p>
+                </div>
+            </div>
+            
+            <div style="max-width: 350px; margin: 20px auto 0;">
+                <p style="margin-bottom: 15px; font-size: 1.1rem; font-weight: bold; color: var(--text-main);">Total: <span id="btnPrice" style="color: var(--vibrant-yellow);">€ 1.99</span></p>
+                <!-- Contentor para os botões reais do PayPal -->
+                <div id="paypal-button-container"></div>
+            </div>
+            
+            <div id="paymentStatus" class="payment-status"></div>
+        </div>
+    </section>
+
+    <!-- Leaderboard Section -->
+    <section id="leaderboard" class="section">
+        <h2 class="section-title" data-i18n="lead_title">Top Pilotos</h2>
+        <div class="leaderboard-container">
+            <table class="leaderboard-table">
+                <thead>
+                    <tr>
+                        <th data-i18n="lead_rank">Rank</th>
+                        <th data-i18n="lead_pilot">Piloto</th>
+                        <th data-i18n="lead_score">Pontuação</th>
+                        <th data-i18n="lead_ship">Nave</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="top-1">
+                        <td>1</td>
+                        <td>Maverick_99</td>
+                        <td>9,450,300</td>
+                        <td>Neon Falcon</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>CyberNinja</td>
+                        <td>8,920,100</td>
+                        <td>Plasma Ray</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>StarLord_X</td>
+                        <td>8,150,500</td>
+                        <td>Void Walker</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>GalacticHero</td>
+                        <td>7,890,200</td>
+                        <td>Neon Falcon</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="socials">
+                <a href="#">Twitter</a>
+                <a href="#">Discord</a>
+                <a href="#">YouTube</a>
+            </div>
+            <p data-i18n="footer_rights">&copy; 2026 Star Blaster. Todos os direitos reservados.</p>
+            <p class="release-notes">v1.1.0 "The Galactic Market"</p>
+        </div>
+    </footer>
+
+    <!-- Música de Fundo -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="music.mp3" type="audio/mpeg">
+    </audio>
+    <button id="muteBtn" aria-label="Toggle music" title="Toggle music">🔊</button>
+
+    <script src="script.js"></script>
+</body>
+</html>
