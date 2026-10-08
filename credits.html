@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Créditos | Star Blaster</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="no-select">
+    <!-- Fundo de Estrelas em Canvas -->
+    <canvas id="starfield"></canvas>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">STAR <span>BLASTER</span></div>
+        <button id="hamburgerBtn" class="hamburger-btn" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" data-i18n="nav_home">Início</a></li>
+            <li><a href="demo.html" style="color: var(--vibrant-yellow); text-shadow: 0 0 8px var(--vibrant-yellow);" data-i18n="nav_demo">Jogar Demo</a></li>
+            <li><a href="shop.html" data-i18n="nav_skins">Mercado Negro (Skins)</a></li>
+            <li><a href="credits.html" data-i18n="nav_credits">Créditos</a></li>
+            <li id="loginNavItem"><a href="login.html">🔒 <span data-i18n="nav_login">Login</span></a></li>
+            <li id="userNavItem" style="display:none;"><a href="profile.html">👤 <span id="userNavName">Pilot</span> ▼</a></li>
+            <li>
+                <select id="langSwitcher" class="lang-switcher">
+                    <option value="pt">🇵🇹 PT</option>
+                    <option value="pt-BR">🇧🇷 PT-BR</option>
+                    <option value="en">🇬🇧 EN</option>
+                    <option value="es">🇪🇸 ES</option>
+                    <option value="fr">🇫🇷 FR</option>
+                    <option value="de">🇩🇪 DE</option>
+                    <option value="it">🇮🇹 IT</option>
+                    <option value="nl">🇳🇱 NL</option>
+                    <option value="sv">🇸🇪 SV</option>
+                    <option value="pl">🇵🇹 PL</option>
+                    <option value="ru">🇷🇺 RU</option>
+                    <option value="el">🇬🇷 EL</option>
+                    <option value="tr">🇹🇷 TR</option>
+                    <option value="ar">🇸🇦 AR</option>
+                    <option value="he">🇮🇱 HE</option>
+                    <option value="hi">🇮🇳 HI</option>
+                    <option value="th">🇹🇭 TH</option>
+                    <option value="vi">🇻🇳 VN</option>
+                    <option value="id">🇮🇩 ID</option>
+                    <option value="zh">🇨🇳 ZH</option>
+                    <option value="ja">🇯🇵 JA</option>
+                    <option value="ko">🇰🇷 KO</option>
+                </select>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Credits Section -->
+    <section class="profile-section">
+        <div class="profile-header">
+            <div class="profile-avatar">🌟</div>
+            <div class="profile-info">
+                <h1 class="profile-username" data-i18n="credits_title">Créditos</h1>
+                <p class="profile-email" data-i18n="credits_subtitle">A equipa por detrás de Star Blaster</p>
+            </div>
+        </div>
+
+        <!-- Tabs -->
+        <div class="profile-tabs">
+            <button class="profile-tab active" data-tab="creators" data-i18n="credits_tab_creators">Criadores</button>
+            <button class="profile-tab" data-tab="testers" data-i18n="credits_tab_testers">Testadores</button>
+            <button class="profile-tab" data-tab="special" data-i18n="credits_tab_thanks">Agradecimentos</button>
+        </div>
+
+        <!-- Creators Tab -->
+        <div class="profile-tab-content active" id="tab-creators">
+            <div class="credits-grid">
+                <div class="credit-card credit-creator">
+                    <span class="credit-badge">DEV</span>
+                    <div class="credit-avatar">🎨</div>
+                    <h3 class="credit-name">Cyber</h3>
+                    <p class="credit-role" data-i18n="credits_role_scripter">Scripter</p>
+                    <p class="credit-role" data-i18n="credits_role_graphics_designer">Graphics Designer</p>
+                    <p class="credit-desc" data-i18n="credits_desc_producer">Gestão do projeto, design, e publicação no GitHub.</p>
+                </div>
+
+                <div class="credit-card credit-creator">
+                    <span class="credit-badge">DEV</span>
+                    <div class="credit-avatar">🌙</div>
+                    <h3 class="credit-name">Moon</h3>
+                    <p class="credit-role" data-i18n="credits_role_scripter">Scripter</p>
+                    <p class="credit-role" data-i18n="credits_role_graphics_designer">Graphics Designer</p>
+                    <p class="credit-desc" data-i18n="credits_desc_scripter">Programação de scripts do jogo, mecânicas e sistemas.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Testers Tab -->
+        <div class="profile-tab-content" id="tab-testers">
+            <div class="credits-grid">
+                <div class="credit-card credit-tester">
+                    <div class="credit-avatar">🎯</div>
+                    <h3 class="credit-name" data-i18n="credits_beta_testers">Beta Testers</h3>
+                    <p class="credit-role" data-i18n="credits_beta_role">Testadores da Fase Beta</p>
+                    <p class="credit-desc" data-i18n="credits_beta_desc">Pessoas que testaram o jogo durante a fase beta e forneceram feedback valioso.</p>
+                </div>
+
+                <div class="credit-card credit-tester">
+                    <div class="credit-avatar">🐛</div>
+                    <h3 class="credit-name" data-i18n="credits_bug_hunters">Bug Hunters</h3>
+                    <p class="credit-role" data-i18n="credits_bug_role">Caçadores de Bugs</p>
+                    <p class="credit-desc" data-i18n="credits_bug_desc">Comunidade que reportou bugs e ajudou a melhorar a estabilidade do jogo.</p>
+                </div>
+
+                <div class="credit-card credit-tester">
+                    <div class="credit-avatar">🌍</div>
+                    <h3 class="credit-name" data-i18n="credits_translators">Tradutores</h3>
+                    <p class="credit-role" data-i18n="credits_translators_role">Equipa de Tradução</p>
+                    <p class="credit-desc" data-i18n="credits_translators_desc">Voluntários que ajudaram a traduzir o jogo para 22 idiomas.</p>
+                </div>
+
+                <div class="credit-card credit-tester">
+                    <div class="credit-avatar">💬</div>
+                    <h3 class="credit-name" data-i18n="credits_community">Comunidade Discord</h3>
+                    <p class="credit-role" data-i18n="credits_community_role">Comunidade</p>
+                    <p class="credit-desc" data-i18n="credits_community_desc">Membros do Discord que apoiaram o projeto desde o início.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Special Thanks Tab -->
+        <div class="profile-tab-content" id="tab-special">
+            <div class="special-thanks">
+                <h2 data-i18n="credits_thanks_title">Agradecimentos Especiais</h2>
+
+                <div class="thanks-item">
+                    <h3 data-i18n="credits_thanks_music">🎵 Música</h3>
+                    <p data-i18n="credits_thanks_music_desc">Soundtracks criadas para o projeto, disponíveis na pasta <code>space-shooter/Soundtracks/</code>.</p>
+                </div>
+
+                <div class="thanks-item">
+                    <h3 data-i18n="credits_thanks_tech">🛠️ Tecnologias</h3>
+                    <ul>
+                        <li><strong>HTML5 Canvas</strong> — <span data-i18n="credits_tech_html">renderização do jogo e efeitos</span></li>
+                        <li><strong>CSS3</strong> — <span data-i18n="credits_tech_css">animações e estilos</span></li>
+                        <li><strong>JavaScript</strong> — <span data-i18n="credits_tech_js">lógica e interatividade</span></li>
+                        <li><strong>PayPal SDK</strong> — <span data-i18n="credits_tech_paypal">sistema de pagamentos</span></li>
+                        <li><strong>Orbitron &amp; Inter</strong> — <span data-i18n="credits_tech_fonts">fontes do Google Fonts</span></li>
+                    </ul>
+                </div>
+
+                <div class="thanks-item">
+                    <h3 data-i18n="credits_thanks_support">💜 Apoia o Projeto</h3>
+                    <p data-i18n="credits_thanks_support_desc">Se gostas do Star Blaster, considera apoiar o desenvolvimento através de:</p>
+                    <ul>
+                        <li>📺 <span data-i18n="credits_support_youtube">Subscrever no</span> <a href="https://www.youtube.com/channel/UCow5ciEEL8AtJpMovEmzw_A" target="_blank" rel="noopener noreferrer">YouTube</a></li>
+                    </ul>
+                </div>
+
+                <div class="thanks-item">
+                    <h3 data-i18n="credits_thanks_license">📜 Licença</h3>
+                    <p data-i18n="credits_thanks_license_desc">Este projeto NÃO é código aberto. Todos os direitos reservados. É proibido copiar, redistribuir ou modificar o código sem autorização explícita do autor.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-footer">
+            <p>🎮 <span data-i18n="auth_demo_hint">Também podes jogar como convidado na</span> <a href="demo.html" data-i18n="auth_demo_link">Demo</a></p>
+        </div>
+    </section>
+
+    <!-- Música de Fundo -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="Void%20Call.mp3" type="audio/mpeg">
+    </audio>
+    <button id="muteBtn" aria-label="Toggle music" title="Toggle music">🔊</button>
+
+    <!-- Painel de Definições -->
+    <button id="settingsBtn" aria-label="Settings" title="Settings">⚙️</button>
+    <div id="settingsPanel" class="settings-panel">
+        <div class="settings-header">
+            <h3 data-i18n="settings_title">Definições</h3>
+            <button id="closeSettings" aria-label="Close">✕</button>
+        </div>
+
+        <div class="settings-section">
+            <label for="volumeSlider" data-i18n="settings_volume">Volume da Música</label>
+            <div class="volume-row">
+                <span class="vol-icon">🔈</span>
+                <input type="range" id="volumeSlider" min="0" max="100" value="30">
+                <span class="vol-icon">🔊</span>
+                <span id="volumeValue">30%</span>
+            </div>
+        </div>
+
+        <div class="settings-section toggle-row">
+            <label for="muteToggle" data-i18n="settings_mute">Silêncio</label>
+            <input type="checkbox" id="muteToggle">
+            <span class="toggle-switch"></span>
+        </div>
+
+        <div class="settings-section toggle-row">
+            <label for="autoplayToggle" data-i18n="settings_autoplay">Início Automático</label>
+            <input type="checkbox" id="autoplayToggle">
+            <span class="toggle-switch"></span>
+        </div>
+
+        <div class="settings-section">
+            <button id="resetMusicBtn" class="settings-action-btn" data-i18n="settings_reset_music">Reiniciar Música</button>
+        </div>
+    </div>
+
+    <script src="script.js?v=15"></script>
+    <script>
+    (function() {
+        // Tab switching
+        function setupTabs() {
+            const tabs = document.querySelectorAll('.profile-tab');
+            const contents = document.querySelectorAll('.profile-tab-content');
+            tabs.forEach(tab => {
+                tab.addEventListener('click', () => {
+                    const target = tab.dataset.tab;
+                    tabs.forEach(t => t.classList.toggle('active', t === tab));
+                    contents.forEach(c => {
+                        c.classList.toggle('active', c.id === 'tab-' + target);
+                    });
+                });
+            });
+        }
+        document.addEventListener('DOMContentLoaded', setupTabs);
+    })();
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a4758e42eb926935',t:'MTc5MTQ2NjgwOA=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

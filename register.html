@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta | Star Blaster</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Orbitron:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">STAR <span>BLASTER</span></div>
+        <button id="hamburgerBtn" class="hamburger-btn" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="index.html" data-i18n="nav_home">Início</a></li>
+            <li><a href="demo.html" style="color: var(--vibrant-yellow); text-shadow: 0 0 8px var(--vibrant-yellow);" data-i18n="nav_demo">Jogar Demo</a></li>
+            <li><a href="shop.html" data-i18n="nav_skins">Mercado Negro (Skins)</a></li>
+            <li><a href="credits.html" data-i18n="nav_credits">Créditos</a></li>
+            <li id="loginNavItem"><a href="login.html" style="color: var(--electric-blue); text-shadow: 0 0 8px var(--electric-blue);">🔒 Login</a></li>
+            <li id="userNavItem" style="display:none;"><a href="#" id="userMenuBtn">👤 <span id="userNavName">Pilot</span> ▼</a></li>
+            <li>
+                <select id="langSwitcher" class="lang-switcher">
+                    <option value="pt">🇵🇹 PT</option>
+                    <option value="pt-BR">🇧🇷 PT-BR</option>
+                    <option value="en">🇬🇧 EN</option>
+                    <option value="es">🇪🇸 ES</option>
+                    <option value="fr">🇫🇷 FR</option>
+                    <option value="de">🇩🇪 DE</option>
+                    <option value="it">🇮🇹 IT</option>
+                    <option value="nl">🇳🇱 NL</option>
+                    <option value="sv">🇸🇪 SV</option>
+                    <option value="pl">🇵🇱 PL</option>
+                    <option value="ru">🇷🇺 RU</option>
+                    <option value="el">🇬🇷 EL</option>
+                    <option value="tr">🇹🇷 TR</option>
+                    <option value="ar">🇸🇦 AR</option>
+                    <option value="he">🇮🇱 HE</option>
+                    <option value="hi">🇮🇳 HI</option>
+                    <option value="th">🇹🇭 TH</option>
+                    <option value="vi">🇻🇳 VI</option>
+                    <option value="id">🇮🇩 ID</option>
+                    <option value="zh">🇨🇳 ZH</option>
+                    <option value="ja">🇯🇵 JA</option>
+                    <option value="ko">🇰🇷 KO</option>
+                </select>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Fundo de Estrelas em Canvas -->
+    <canvas id="starfield"></canvas>
+
+    <!-- Register Section -->
+    <section class="auth-section">
+        <div class="auth-card">
+            <div class="auth-header">
+                <div class="auth-icon">🚀</div>
+                <h2 class="auth-title" data-i18n="auth_register_title">Criar Conta</h2>
+                <p class="auth-subtitle" data-i18n="auth_register_subtitle">Junta-te à frota galáctica!</p>
+            </div>
+
+            <form id="registerForm" class="auth-form" autocomplete="off">
+                <div class="auth-field">
+                    <label for="regUsername" data-i18n="auth_username">Nome de Piloto</label>
+                    <input type="text" id="regUsername" name="username" required minlength="3" maxlength="20" pattern="[a-zA-Z0-9_]+" placeholder="CyberNinja">
+                    <small class="auth-hint" data-i18n="auth_username_hint">Apenas letras, números e underscore. 3-20 caracteres.</small>
+                </div>
+
+                <div class="auth-field">
+                    <label for="regEmail" data-i18n="auth_email">Email</label>
+                    <input type="email" id="regEmail" name="email" required placeholder="piloto@starblaster.com">
+                </div>
+
+                <div class="auth-field">
+                    <label for="regPassword" data-i18n="auth_password">Palavra-passe</label>
+                    <div class="password-wrap">
+                        <input type="password" id="regPassword" name="password" required minlength="6" placeholder="••••••••">
+                        <button type="button" class="toggle-password" data-target="regPassword" aria-label="Mostrar palavra-passe">👁️</button>
+                    </div>
+                    <small class="auth-hint" data-i18n="auth_password_hint">Mínimo 6 caracteres.</small>
+                </div>
+
+                <div class="auth-field">
+                    <label for="regPasswordConfirm" data-i18n="auth_password_confirm">Confirmar Palavra-passe</label>
+                    <div class="password-wrap">
+                        <input type="password" id="regPasswordConfirm" name="password_confirm" required minlength="6" placeholder="••••••••">
+                        <button type="button" class="toggle-password" data-target="regPasswordConfirm" aria-label="Mostrar palavra-passe">👁️</button>
+                    </div>
+                </div>
+
+                <div id="registerError" class="auth-error"></div>
+
+                <button type="submit" class="auth-submit" data-i18n="auth_register_btn">CRIAR CONTA</button>
+
+                <div class="auth-divider">
+                    <span data-i18n="auth_or">ou</span>
+                </div>
+
+                <a href="login.html" class="auth-secondary" data-i18n="auth_login_link">Já tens conta? Entrar</a>
+            </form>
+        </div>
+    </section>
+
+    <!-- Música de Fundo -->
+    <audio id="bgMusic" loop preload="auto">
+        <source src="Void%20Call.mp3" type="audio/mpeg">
+    </audio>
+
+    <button id="muteBtn" aria-label="Toggle music" title="Toggle music">🔊</button>
+
+    <script src="script.js?v=12"></script>
+    <script>
+    // If user is already logged in, redirect to home
+    if (localStorage.getItem('sb_session')) {
+        try {
+            const sess = JSON.parse(localStorage.getItem('sb_session'));
+            if (sess && sess.email) {
+                window.location.replace('index.html');
+            }
+        } catch (_) {}
+    }
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a47567c58d91e3d0',t:'MTc5MTQ2NTIzMg=='};var a=document.createElement('script');a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
